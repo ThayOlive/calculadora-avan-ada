@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href= "{% static 'style/login_style.css' %}">
+  </head>
+
+  <body>
+        <div class="card">
+           <div class="card-header text-center">Calculadora Avançada</div>
+            <div class="card-body">
+              <form method="post">
+                {% csrf_token %} {{ form }}
+                <button type="submit" class="btn btn-block">Entrar</button>
+              </form>
+            </div>
+          </div>
+        </div>  
+  </body>
+</html>

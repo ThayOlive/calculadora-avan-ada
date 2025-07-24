@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loginy</title>
+    <link rel="stylesheet" href= "{% static 'style/calculadora_style.css' %}">
+  </head>
+
+<body>
+ <div class= "container-principal">
+    <p class="h1">Calculadora Avançada</p>
+    <p class="h6">Calculadora com histórico de operações</p>
+
+    <div class="calculadora-container">
+      <div class="calculadora">
+          <div class="display" id="display">0</div>
+            <div class="botoes">
+                <button class="btn btn-clear">C</button>
+                <button class="btn btn-op">±</button>
+                <button class="btn btn-op">%</button>
+                <button class="btn btn-operacao">+</button>
+
+                <button class="btn btn-num">7</button>
+                <button class="btn btn-num">8</button>
+                <button class="btn btn-num">9</button>
+                <button class="btn btn-operacao">×</button>
+
+                <button class="btn btn-num">4</button>
+                <button class="btn btn-num">5</button>
+                <button class="btn btn-num">6</button>
+                <button class="btn btn-operacao">−</button>
+
+                <button class="btn btn-num">1</button>
+                <button class="btn btn-num">2</button>
+                <button class="btn btn-num">3</button>
+                <button class="btn btn-operacao">+</button>
+
+                <button class="btn btn-num zero">0</button>
+                <button class="btn btn-num">.</button>
+                <button class="btn btn-igual">=</button>
+            </div>
+          </div>
+    <div class="historico">
+        <h3><i class="far fa-clock"></i> Histórico <button class="btn-limpar">🗑️</button></h3>
+      <!-- Aqui entra o histórico de operações -->
+     <div>
+      <div class="item-historico">
+        <div>3 × 5</div>
+        <div>= 15</div>
+        <div class="hora">19:20</div>
+      </div>
+      <div class="item-historico">
+        <div>1 + 2</div>
+        <div>= 3</div>
+        <div class="hora">19:20</div>
+      </div>
+      <div class="item-historico">
+        <div>1 + 2</div>
+        <div>= 3</div>
+        <div class="hora">19:20</div>
+      </div>
+      <div class="item-historico">
+        <div>1 + 2</div>
+        <div>= 3</div>
+        <div class="hora">19:20</div>
+      </div>
+      <div class="item-historico">
+        <div>1 + 2</div>
+        <div>= 3</div>
+        <div class="hora">19:20</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,117 @@
+/* Reset básico para body */
+body {
+  background: linear-gradient(135deg, #1a0a3d, #3c1e68);
+  display: flex;       /* Ativa o flexbox */
+  margin: 0;           /* resetar a margem do navegador*/
+  justify-content: center;  /* alinhar horizontalmente */
+  align-items: center;  /* alinhar verticalmente*/
+  height: 100vh; 
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #e0e0f7;
+   
+}
+
+/* Container do card */
+.card {
+  background-color: #2a1b59;
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+  color: #e0e0f7;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* aplica animações */
+  border: none;
+}
+
+.card:hover { /* aplica mudanças quando o mouse passa sobre um elemento*/
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* Cabeçalho */
+.card-header {
+  background: linear-gradient(90deg, #673acf, #a46fff);
+  color: #f1ecff;
+  font-size: 1.5rem;
+  font-weight: 700;
+  border-top-left-radius: 20px; /* arredonda o canto superior esquerdo*/
+  border-top-right-radius: 20px; /* arredonda o canto superior direto*/
+  padding: 1.5rem;
+  text-align: center;
+}
+
+/* Corpo do card */
+.card-body {
+  padding: 2rem 2.5rem;  /*afastar o conteúdo das bordas*/
+}
+
+/* Botão */
+button.btn {
+  background: linear-gradient(90deg, #7a4ce5, #a46fff);
+  border: none;
+  border-radius: 30px;
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 700;
+  padding: 0.75rem;
+  cursor: pointer;
+  transition: background 0.4s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 12px rgba(122, 76, 229, 0.7);
+}
+
+button.btn:hover {
+  background: linear-gradient(90deg, #5a3cb1, #7c57d9);
+  box-shadow: 0 8px 24px rgba(92, 68, 181, 0.9);
+  transform: scale(1.05);
+}
+
+/* Formulário */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem; /*espaço entre os itens do formulario */
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+  .card {
+    border-radius: 15px;
+  }
+
+  .card-header {
+    font-size: 1.4rem;
+    padding: 1rem;
+  }
+
+  .card-body {
+    padding: 1.5rem 1.8rem;
+  }
+
+  button.btn {
+    font-size: 1.1rem;
+    padding: 0.6rem;
+  }
+}
+
+/* Estilo para os campos do formulário */
+input[type="text"],
+input[type="password"]
+ {
+  background-color: rgba(70, 100, 230, 0.1); /* azul clarinho transparente */
+  border: 2px solid #5a7fff; /* borda azul */
+  border-radius: 8px;
+  color: #e0e0f7; /* texto claro */
+  padding: 0.6rem 0.8rem;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  box-sizing: border-box; /* inclui padding e borda dentro do tamanho total*/
+}
+
+/* Efeito ao focar no campo */
+input[type="text"]:focus,
+input[type="password"]:focus
+ {
+  outline: none; /* remover contorno */
+  border-color: #7a8fff;
+  box-shadow: 0 0 8px #7a8fff;
+  background-color: rgba(70, 100, 230, 0.2);
+}
