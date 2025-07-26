@@ -30,11 +30,11 @@ body {
 
 .calculadora-container {
   display: flex;
-  gap: 0.8rem; /* diminuiu bastante o espaçamento */
+  gap: 0.8rem; 
   max-width: 900px; /* um pouco maior pra ter mais espaço */
   width: 100%;
   align-items: flex-start;
-  
+  padding: 1rem;
 }
 .calculadora {
   background: #2a1b59;
@@ -162,7 +162,7 @@ body {
 .item-historico .hora {
   font-size: 0.8rem;
   color: #8865bf;
-  text-align: right;
+  text-align: left;
 }
 
 /* Responsividade */

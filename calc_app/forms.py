@@ -8,8 +8,6 @@ class UsuarioCreateForm(UserCreationForm):
         model = Usuario
         fields = ['username', 'first_name', 'email']
 
-    
-
 
 class UsuarioChangeForm(UserChangeForm):
     class Meta:

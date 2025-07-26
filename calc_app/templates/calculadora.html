@@ -67,24 +67,34 @@
 </div>
 
 <script>
-  // código JS Feito com IA 
+  // código JS Feito com IA - constrói a interação dos botões
+
+    // seleciona por Id
     const display = document.getElementById('display');
+    // seleciona por classe 
     const buttons = document.querySelectorAll('.btn');
 
+     // percorre todos os botoes
    buttons.forEach(button => {
+    // ignora o botão de envio, não precisamos dele
     if (button.type !== 'submit') {
+        // adiciona um evento click e qnd o botão for clicado executa a função e
         button.addEventListener('click', function(e) {
+            // previne comportamento padrão de botoes 
             e.preventDefault();
 
+            // descobre a classe do botão clicado
             const btnClass = this.classList;
 
             if (btnClass.contains('btn-clear')) {
+                // faz o display zerar 
                 display.value = '0';
-            }
+            } 
             else if (btnClass.contains('btn-num') || btnClass.contains('btn-operacao') || btnClass.contains('btn-op')) {
+                // se o display estiver com 0, substitui pelo número ou operador clicado
                 if (display.value === '0') {
                     display.value = this.textContent;
-                } else {
+                } else {    // se já tiver algum valor, acrescenta o que foi clicado (ex: o +, o ×, ou outro número)
                     display.value += this.textContent;
                 }
             }
