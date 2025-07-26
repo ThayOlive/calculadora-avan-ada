@@ -8,11 +8,7 @@ db.sqlite3
 *.sqlite3
 
 # Ambientes virtuais
-venv/
-env/
-ENV/
 .venv/
-.ENV/
 
 # Arquivos do VSCode ou outros editores/IDE
 .vscode/
@@ -23,10 +19,6 @@ ENV/
 .DS_Store
 Thumbs.db
 
-# Arquivos de migração (opcional se quiser manter versionados)
-# ** Use com cuidado **
-# */migrations/*.py
-# !*/migrations/__init__.py
 
 # Arquivos/diretórios sensíveis ou privados
 .env
