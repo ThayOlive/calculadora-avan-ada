@@ -13,7 +13,8 @@
            <div class="card-header text-center">Calculadora Avançada</div>
             <div class="card-body">
               <form method="post">
-                {% csrf_token %} {{ form }}
+                {% csrf_token %} 
+                {{ form }}
                 <button type="submit" class="btn btn-block">Entrar</button>
               </form>
             </div>

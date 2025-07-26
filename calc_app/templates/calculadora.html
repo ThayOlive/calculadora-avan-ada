@@ -12,69 +12,87 @@
  <div class= "container-principal">
     <p class="h1">Calculadora Avançada</p>
     <p class="h6">Calculadora com histórico de operações</p>
-
     <div class="calculadora-container">
-      <div class="calculadora">
-          <div class="display" id="display">0</div>
-            <div class="botoes">
-                <button class="btn btn-clear">C</button>
-                <button class="btn btn-op">±</button>
-                <button class="btn btn-op">%</button>
-                <button class="btn btn-operacao">+</button>
+      <form method="post" class="calculadora">
+        {% csrf_token %}
+        <input id="display" class="display" type="text" name="expressao" value="{{ expressao|default:'0' }}" readonly>
+        <div class="botoes">
+            <button type="button" class="btn btn-clear">C</button>
+            <button type="button" class="btn btn-op">±</button>
+            <button type="button" class="btn btn-op">%</button>
+            <button type="button" class="btn btn-operacao">+</button>
 
-                <button class="btn btn-num">7</button>
-                <button class="btn btn-num">8</button>
-                <button class="btn btn-num">9</button>
-                <button class="btn btn-operacao">×</button>
+            <button type="button" class="btn btn-num">7</button>
+            <button type="button" class="btn btn-num">8</button>
+            <button type="button" class="btn btn-num">9</button>
+            <button type="button" class="btn btn-operacao">×</button>
 
-                <button class="btn btn-num">4</button>
-                <button class="btn btn-num">5</button>
-                <button class="btn btn-num">6</button>
-                <button class="btn btn-operacao">−</button>
+            <button type="button" class="btn btn-num">4</button>
+            <button type="button" class="btn btn-num">5</button>
+            <button type="button" class="btn btn-num">6</button>
+            <button type="button" class="btn btn-operacao">−</button>
 
-                <button class="btn btn-num">1</button>
-                <button class="btn btn-num">2</button>
-                <button class="btn btn-num">3</button>
-                <button class="btn btn-operacao">+</button>
+            <button type="button" class="btn btn-num">1</button>
+            <button type="button" class="btn btn-num">2</button>
+            <button type="button" class="btn btn-num">3</button>
+            <button type="button" class="btn btn-operacao">+</button>
 
-                <button class="btn btn-num zero">0</button>
-                <button class="btn btn-num">.</button>
-                <button class="btn btn-igual">=</button>
-            </div>
-          </div>
+            <button type="button" class="btn btn-num zero">0</button>
+            <button type="button" class="btn btn-num">.</button>
+            <button type="submit" class="btn btn-igual">=</button> <!-- aqui o submit acontece -->
+        </div>
+</form>
+
     <div class="historico">
-        <h3><i class="far fa-clock"></i> Histórico <button class="btn-limpar">🗑️</button></h3>
-      <!-- Aqui entra o histórico de operações -->
-     <div>
-      <div class="item-historico">
-        <div>3 × 5</div>
-        <div>= 15</div>
-        <div class="hora">19:20</div>
-      </div>
-      <div class="item-historico">
-        <div>1 + 2</div>
-        <div>= 3</div>
-        <div class="hora">19:20</div>
-      </div>
-      <div class="item-historico">
-        <div>1 + 2</div>
-        <div>= 3</div>
-        <div class="hora">19:20</div>
-      </div>
-      <div class="item-historico">
-        <div>1 + 2</div>
-        <div>= 3</div>
-        <div class="hora">19:20</div>
-      </div>
-      <div class="item-historico">
-        <div>1 + 2</div>
-        <div>= 3</div>
-        <div class="hora">19:20</div>
-      </div>
+     <h3>
+    <i class="far fa-clock"></i> Histórico
+          <form method="post" style="display:inline;">
+              {% csrf_token %}
+            <input type="hidden" name="limpar_historico" value="limpar_historico">
+            <button type="submit" class="btn-limpar" title="Limpar Histórico">🗑️</button>
+          </form>
+    </h3>
+        <div class= "item-historico">
+            {% for op in historico_operacoes %}     
+                <div>{{ op.parametros }} </div>
+                <div> = {{ op.resultado }}</div>   
+                <div class="hora">{{ op.dt_inclusao|date:"H:i" }}</div>
+          
+            {% empty %}
+                <li>Nenhuma operação ainda.</li>
+            {% endfor %}
+        </div>
     </div>
   </div>
 </div>
 
+<script>
+  // código JS Feito com IA 
+    const display = document.getElementById('display');
+    const buttons = document.querySelectorAll('.btn');
+
+   buttons.forEach(button => {
+    if (button.type !== 'submit') {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            const btnClass = this.classList;
+
+            if (btnClass.contains('btn-clear')) {
+                display.value = '0';
+            }
+            else if (btnClass.contains('btn-num') || btnClass.contains('btn-operacao') || btnClass.contains('btn-op')) {
+                if (display.value === '0') {
+                    display.value = this.textContent;
+                } else {
+                    display.value += this.textContent;
+                }
+            }
+        });
+    }
+});
+
+</script>
 </body>
 
 </html>
